@@ -1,0 +1,24 @@
+class MovieReview {
+    public static void classifyWordLengths(String review) {
+        // Split the review by spaces to get individual words
+        String[] words = review.split("\\s+");
+        int shortWords = 0, mediumWords = 0, longWords = 0;
+        
+        for (String word : words) {
+            int length = word.length();
+            if (length >= 1 && length <= 4) {
+                shortWords++;
+            } else if (length >= 5 && length <= 8) {
+                mediumWords++;
+            } else if (length >= 9) {
+                longWords++;
+            }
+        }
+        
+        System.out.println("Short: " + shortWords + " | Medium: " + mediumWords + " | Long: " + longWords);
+    }
+
+    public static void main(String[] args) {
+        classifyWordLengths("This movie was absolutely fantastic and thrilling");
+    }
+}
